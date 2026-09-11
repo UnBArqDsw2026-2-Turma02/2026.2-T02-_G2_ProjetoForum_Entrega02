@@ -1,31 +1,87 @@
-# RepositorioTemplate
+# 2026.2-T02-_G2_ProjetoForum_Entrega02
 
-Repositório que deve ser utilizado como template inicial pelos grupos da matéria de Arquitetura e Desenho de Software.
+Repositório de documentação do Grupo 02 (Turma 02) da disciplina de Arquitetura e Desenho de Software (FGA0208 - UnB), referente à Entrega 02 (Desenho de Software - Modelagem).
 
-## Introdução
+## Sobre o projeto
 
-Este repositório traz um template de repo de documentação a ser seguido pelos grupos de arquitetura e desenho de software.
+O projeto consiste na Modelagem UML (Estática e Dinâmica) do G2_ProjetoForum, um fórum de perguntas e respostas.
+Toda a documentação da entrega está disponível no GitHub Pages do projeto (ver seção abaixo).
+
+## Equipe
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/oalbertocavalcante.png" width="100"><br>
+      <a href="https://github.com/oalbertocavalcante">Alberto Côrtes</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/arturdcr.png" width="100"><br>
+      <a href="https://github.com/arturdcr">Artur de Camargos</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/youngburny.png" width="100"><br>
+      <a href="https://github.com/youngburny">Bruno Souza</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/CaioSoandrd.png" width="100"><br>
+      <a href="https://github.com/CaioSoandrd">Caio Soares</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/cauanicolas.png" width="100"><br>
+      <a href="https://github.com/cauanicolas">Cauã Nicolas</a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/KaioAmouryUnB.png" width="100"><br>
+      <a href="https://github.com/KaioAmouryUnB">Kaio Amoury</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/surpesaiajin.png" width="100"><br>
+      <a href="https://github.com/surpesaiajin">Leonardo de Aquino</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/Borges061.png" width="100"><br>
+      <a href="https://github.com/Borges061">Luis Guilherme</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/ZarbL.png" width="100"><br>
+      <a href="https://github.com/ZarbL">Luis Zarbielli</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/Maria-Laura-Regis.png" width="100"><br>
+      <a href="https://github.com/Maria-Laura-Regis">Maria Laura</a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/Pedrovargas10.png" width="100"><br>
+      <a href="https://github.com/Pedrovargas10">Pedro Vargas</a>
+    </td>
+  </tr>
+</table>
 
 ## Tecnologia
 
-A geração do site estático é realizada utilizando o [docsify](https://docsify.js.org/).
+A geração do site estático de documentação é feita com o [docsify](https://docsify.js.org/), a partir dos arquivos Markdown presentes na pasta `docs/`.
 
-```shell
-"Docsify generates your documentation website on the fly. Unlike GitBook, it does not generate static html files. Instead, it smartly loads and parses your Markdown files and displays them as a website. To start using it, all you need to do is create an index.html and deploy it on GitHub Pages."
-```
-
-### Instalando o docsify
-
-Execute o comando:
-
+### Instalando o docsify (opcional, para rodar localmente)
 ```shell
 npm i docsify-cli -g
 ```
 
 ### Executando localmente
-
-Para iniciar o site localmente, utilize o comando:
-
 ```shell
 docsify serve ./docs
 ```
+
+O site ficará disponível em `http://localhost:3000`.
+
+## GitHub Pages
+
+A documentação publicada pode ser acessada em:
+`https://unbarqdsw2026-2-turma02.github.io/2026.2-T02-_G2_ProjetoForum_Entrega02/`
+
+## Como contribuir
+Consulte o arquivo [CONTRIBUTING.md](./CONTRIBUTING.md) para o fluxo de branches, commits e revisão adotado pelo grupo.

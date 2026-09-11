@@ -1,41 +1,87 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial.
-As seções do Template NÃO DEVEM SER OMITIDAS, sendo TODAS RELEVANTES.
-Demais diretrizes constam no Moodle.
+# 2026.2-T02-_G2_ProjetoForum_Entrega02
 
-**!! Atenção: Renomeie o seu repositório para (Ano.Semestre)(Turma)_(Grupo)_(NomeDoProjeto)_(Entrega_02)*. !!** 
+Repositório de documentação do Grupo 02 (Turma 02) da disciplina de Arquitetura e Desenho de Software (FGA0208 - UnB), referente à Entrega 02 (Desenho de Software - Modelagem).
 
-**!! *Não coloque os nomes dos alunos no título do repositório*. !!**
+## Sobre o projeto
 
-**!! *Exemplo de título correto: 2026.2(T02)_G1_ProjetoComercioEletronico_Entrega_02*. !!** 
- 
- (Apague esses comentários)
+O projeto consiste na Modelagem UML (Estática e Dinâmica) do G2_ProjetoForum, um fórum de perguntas e respostas.
+Toda a documentação da entrega está disponível no GitHub Pages do projeto (ver seção abaixo).
 
-# Nome do Projeto
+## Equipe
 
-**Código da Disciplina**: FGA0208<br>
-**Número do Grupo**: XX<br>
-**Entrega**: 02<br>
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/oalbertocavalcante.png" width="100"><br>
+      <a href="https://github.com/oalbertocavalcante">Alberto Côrtes</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/arturdcr.png" width="100"><br>
+      <a href="https://github.com/arturdcr">Artur de Camargos</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/youngburny.png" width="100"><br>
+      <a href="https://github.com/youngburny">Bruno Souza</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/CaioSoandrd.png" width="100"><br>
+      <a href="https://github.com/CaioSoandrd">Caio Soares</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/cauanicolas.png" width="100"><br>
+      <a href="https://github.com/cauanicolas">Cauã Nicolas</a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/KaioAmouryUnB.png" width="100"><br>
+      <a href="https://github.com/KaioAmouryUnB">Kaio Amoury</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/surpesaiajin.png" width="100"><br>
+      <a href="https://github.com/surpesaiajin">Leonardo de Aquino</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/Borges061.png" width="100"><br>
+      <a href="https://github.com/Borges061">Luis Guilherme</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/ZarbL.png" width="100"><br>
+      <a href="https://github.com/ZarbL">Luis Zarbielli</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/Maria-Laura-Regis.png" width="100"><br>
+      <a href="https://github.com/Maria-Laura-Regis">Maria Laura</a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/Pedrovargas10.png" width="100"><br>
+      <a href="https://github.com/Pedrovargas10">Pedro Vargas</a>
+    </td>
+  </tr>
+</table>
 
-## Alunos
-|Matrícula | Aluno |
-| -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+## Tecnologia
 
-## Sobre 
-Contextualize, usando referências, links, e outros materiais como fontes.
+A geração do site estático de documentação é feita com o [docsify](https://docsify.js.org/), a partir dos arquivos Markdown presentes na pasta `docs/`.
 
-## Screenshots da Segunda Entrega
-Adicione 2 ou mais screenshots em termos de artefatos realizados na entrega.
+### Instalando o docsify (opcional, para rodar localmente)
+```shell
+npm i docsify-cli -g
+```
 
-## Há algo a ser executado?
+### Executando localmente
+```shell
+docsify serve ./docs
+```
 
-( ) SIM
+O site ficará disponível em `http://localhost:3000`.
 
-( ) NÃO
+## GitHub Pages
 
-Se SIM, insira um manual (ou um script) para auxiliar ainda mais os interessados na execução.
+A documentação publicada pode ser acessada em:
+`https://unbarqdsw2026-2-turma02.github.io/2026.2-T02-_G2_ProjetoForum_Entrega02/`
 
-## Informações Complementares 
-Quaisquer outras informações adicionais podem ser descritas nessa seção.
+## Como contribuir
+Consulte o arquivo [CONTRIBUTING.md](./CONTRIBUTING.md) para o fluxo de branches, commits e revisão adotado pelo grupo.
