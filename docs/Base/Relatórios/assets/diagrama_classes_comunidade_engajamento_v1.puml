@@ -1,0 +1,124 @@
+@startuml
+title Diagrama de Classes — Comunidade e Engajamento
+
+hide circle
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam shadowing false
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #263238
+  HeaderBackgroundColor #263238
+  HeaderFontColor #FFFFFF
+  FontColor #263238
+}
+
+class Usuario {
+  - id: UUID
+  - nome: String
+  + votar(alvo: ConteudoVotavel, tipo: TipoVoto)
+  + oferecerRecompensa(alvo: ConteudoVotavel, valor: int)
+}
+
+class PerfilPublico {
+  - nomeExibicao: String
+  - resumoAtividades: String
+  + exibirHistorico()
+}
+
+class Reputacao {
+  - pontuacao: int
+  + registrar(evento: EventoReputacao)
+  + consultarSaldo(): int
+}
+
+class Voto {
+  - tipo: TipoVoto
+  - criadoEm: DateTime
+}
+
+abstract class ConteudoVotavel <<referenciado>> {
+  - id: UUID
+}
+
+class EventoReputacao {
+  - tipo: TipoEvento
+  - variacao: int
+  - ocorridoEm: DateTime
+  + aplicar()
+}
+
+class Medalha {
+  - nome: String
+  - categoria: CategoriaMedalha
+  - criterio: String
+}
+
+class Privilegio {
+  - nome: String
+  - descricao: String
+}
+
+class Recompensa {
+  - valor: int
+  - estado: EstadoRecompensa
+  - criadaEm: DateTime
+  + conceder()
+  + expirar()
+}
+
+enum TipoVoto {
+  Positivo
+  Negativo
+}
+
+enum CategoriaMedalha {
+  Bronze
+  Prata
+  Ouro
+}
+
+enum EstadoRecompensa {
+  Disponivel
+  Ofertada
+  Concedida
+  Expirada
+  Cancelada
+}
+
+enum TipoEvento {
+  Voto
+  RespostaAceita
+  Recompensa
+  Outro
+}
+
+Usuario "1" *-- "1" PerfilPublico : disponibiliza
+Usuario "1" *-- "1" Reputacao : mantém
+Usuario "1" -- "0..*" Voto : registra
+Voto "0..*" --> "1" ConteudoVotavel : avalia
+ConteudoVotavel "1" --> "1" Usuario : possui autor
+Reputacao "1" *-- "0..*" EventoReputacao : registra
+Voto "0..1" --> "0..1" EventoReputacao : pode gerar
+Usuario "0..*" -- "0..*" Medalha : recebe
+Usuario "0..*" -- "0..*" Privilegio : acessa
+Reputacao ..> Privilegio : habilita progressivamente
+Usuario "1" -- "0..*" Recompensa : oferece
+Recompensa "0..*" --> "1" ConteudoVotavel : incentiva
+
+Voto --> TipoVoto
+Medalha --> CategoriaMedalha
+Recompensa --> EstadoRecompensa
+EventoReputacao --> TipoEvento
+
+note right of ConteudoVotavel
+  Representa pergunta, resposta ou comentário.
+  Seus detalhes pertencem a outro recorte
+  e não são detalhados neste modelo.
+end note
+
+note bottom of Recompensa
+  Os estados explicitam o ciclo de vida
+  conceitual da recompensa.
+end note
+@enduml
