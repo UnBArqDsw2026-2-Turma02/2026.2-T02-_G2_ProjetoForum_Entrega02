@@ -1,0 +1,8 @@
+docs/rascunhos/relato_ia_generativa.md
+
+# Implementação FastAPI
+app/
+__pycache__/
+*.pyc
+requirements.txt
+script_mysql.sql
