@@ -47,7 +47,7 @@ activate conteudo
 conteudo -[#1565C0]-> controle: elegível / inelegível
 deactivate conteudo
 
-alt [voto válido]
+alt conteúdo elegível
 
   create voto
   controle -[#2E7D32]-> voto: <<create>>(tipo, criadoEm)
@@ -60,13 +60,17 @@ alt [voto válido]
   activate reputacao
   reputacao -> evento: aplicar()
   evento -[#1565C0]-> reputacao: variação aplicada
+  reputacao -[#1565C0]-> controle: evento registrado
+  deactivate reputacao
+
   controle -> reputacao: consultarSaldo()
+  activate reputacao
   reputacao -[#1565C0]-> controle: pontuacaoAtual
   deactivate reputacao
 
   controle -[#1565C0]-> votante: voto registrado
 
-else [voto inválido]
+else conteúdo inelegível
   controle -[#1565C0]-> votante: voto rejeitado (motivo)
 end
 
