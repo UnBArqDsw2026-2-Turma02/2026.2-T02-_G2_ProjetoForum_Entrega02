@@ -1,0 +1,73 @@
+@startuml
+title Diagrama de Objetos — Comunidade e Engajamento
+
+skinparam shadowing false
+skinparam roundcorner 12
+skinparam defaultFontName Helvetica
+skinparam titleFontSize 22
+skinparam titleFontColor #1F2A38
+skinparam titleFontStyle bold
+skinparam object {
+  BackgroundColor #F5F6FA
+  BorderColor #1F2A38
+  FontColor #1F2A38
+  FontStyle bold
+  AttributeFontColor #33414D
+  AttributeFontStyle normal
+}
+skinparam ArrowColor #37474F
+skinparam ArrowFontColor #33414D
+skinparam note {
+  BackgroundColor #FDF6D8
+  BorderColor #D9A621
+  FontColor #4A3B00
+}
+
+object "usuarioVotante1 : Usuario" as usuarioVotante1 {
+  id = "u-1001"
+  nome = "Ana Souza"
+}
+
+object "usuarioAutor1 : Usuario" as usuarioAutor1 {
+  id = "u-1002"
+  nome = "Bruno Lima"
+}
+
+object "conteudoVotavel1 : ConteudoVotavel" as conteudoVotavel1 {
+  id = "c-2001"
+}
+
+object "voto1 : Voto" as voto1 {
+  tipo = Positivo
+  criadoEm = 2026-09-17T10:30
+}
+
+object "reputacaoAutor1 : Reputacao" as reputacaoAutor1 {
+  pontuacao = 125
+}
+
+object "eventoReputacao1 : EventoReputacao" as eventoReputacao1 {
+  tipo = Voto
+  variacao = 10
+  ocorridoEm = 2026-09-17T10:30
+}
+
+usuarioAutor1 *-- reputacaoAutor1 : mantém
+usuarioVotante1 -- voto1 : registra
+voto1 --> conteudoVotavel1 : avalia
+conteudoVotavel1 --> usuarioAutor1 : possui autor
+reputacaoAutor1 *-- eventoReputacao1 : registra
+voto1 --> eventoReputacao1 : pode gerar
+
+note right of conteudoVotavel1
+  Instância conceitual do conteúdo votável;
+  o tipo concreto pertence a outro recorte.
+end note
+
+note bottom of eventoReputacao1
+  Registro conceitual do efeito do voto;
+  variação é valor ilustrativo — a regra
+  quantitativa não foi modelada.
+end note
+
+@enduml
