@@ -29,7 +29,7 @@ também o [Modelo de Ata](/Base/iniciativas_extras/atas_reuniao/modelo-ata.md)).
 ### SubEquipe_01
 
 Registro publicado em local próprio, fora deste padrão: ver
-[Ata de Reunião — Arquitetura DSW (15/09)](</Base/Relatórios/Ata de Reunião 15-09, subgrupo1.md>),
+[Ata de Reunião — Arquitetura DSW (15/09)](/Base/iniciativas_extras/atas_reuniao/subequipe_01/ata-15-09.md),
 referenciada em [1.3. Iniciativas Extras](/Base/1.3.IniciativasExtras.md).
 
 ### SubEquipe_02
