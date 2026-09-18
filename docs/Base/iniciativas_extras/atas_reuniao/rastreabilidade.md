@@ -43,6 +43,7 @@ referenciada em [1.3. Iniciativas Extras](../../1.3.IniciativasExtras.md).
 | Nº | Data | Participantes | Pauta | Ata / Comprobatório |
 | :-: | :-: | :-: | :-: | :-: |
 | 1 | 15/09/2026 | Alberto Côrtes, Bruno Souza, Kaio Amoury, Pedro Vargas (todos presentes) | Onboarding da Entrega 02: ajuste de escopo, revisão do diagrama de componentes e de classes, alinhamento arquitetural | [Ata 01](./subequipe_03/ata-01-onboarding.md) |
+| 2 | 15/09/2026 | Alberto Côrtes, Bruno Souza, Kaio Amoury, Pedro Vargas (todos presentes) | Modelagem: definição da arquitetura MVC, redução de escopo para anúncios online e construção manual do diagrama de pacotes | [Ata 02](./subequipe_03/ata-02-modelagem.md) |
 
 _Conteúdo em desenvolvimento: as tabelas serão atualizadas a cada reunião
 realizada pelo grupo ao longo da entrega._

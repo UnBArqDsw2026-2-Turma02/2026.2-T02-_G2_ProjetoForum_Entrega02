@@ -13,3 +13,4 @@
       * [Modelo de Ata](Base/iniciativas_extras/atas_reuniao/modelo-ata.md)
       * SubEquipe_03
         * [Ata 01 - Onboarding](Base/iniciativas_extras/atas_reuniao/subequipe_03/ata-01-onboarding.md)
+        * [Ata 02 - Modelagem](Base/iniciativas_extras/atas_reuniao/subequipe_03/ata-02-modelagem.md)
