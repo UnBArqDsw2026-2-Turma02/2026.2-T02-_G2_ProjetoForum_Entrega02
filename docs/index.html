@@ -7,6 +7,34 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    /* Seta indicando itens do menu lateral com subitens recolhíveis (dropdown) */
+    .sidebar-nav li.folder {
+      position: relative;
+    }
+    .sidebar-nav li.folder > a,
+    .sidebar-nav li.folder > p {
+      padding-right: 22px;
+    }
+    .sidebar-nav li.folder::after {
+      content: "";
+      position: absolute;
+      right: 6px;
+      top: 12px;
+      width: 6px;
+      height: 6px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      opacity: 0.55;
+      transform: rotate(-45deg);
+      transition: transform 0.15s ease;
+      pointer-events: none;
+    }
+    .sidebar-nav li.folder.open::after {
+      top: 15px;
+      transform: rotate(45deg);
+    }
+  </style>
 </head>
 <body>
   <div id="app"></div>
@@ -45,5 +73,7 @@
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- Menu lateral retrátil (dropdown): recolhe subseções, como Iniciativas Extras -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
 </body>
 </html>
