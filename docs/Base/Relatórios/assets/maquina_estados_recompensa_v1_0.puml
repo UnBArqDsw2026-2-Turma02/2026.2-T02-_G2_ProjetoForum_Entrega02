@@ -1,0 +1,50 @@
+@startuml
+title Máquina de Estados — Ciclo de vida de Recompensa
+
+hide empty description
+skinparam shadowing false
+skinparam roundcorner 12
+skinparam linetype ortho
+skinparam defaultFontName Helvetica
+skinparam titleFontSize 22
+skinparam titleFontColor #1F2A38
+skinparam titleFontStyle bold
+skinparam state {
+  BackgroundColor #F8F9FB
+  BorderColor #1F2A38
+  FontColor #1F2A38
+  ArrowColor #E65100
+  StartColor #1F2A38
+  EndColor #1F2A38
+}
+
+state "Disponivel" as Disponivel
+Disponivel : configurada e pronta
+Disponivel : ainda não ofertada
+
+state "Ofertada" as Ofertada
+Ofertada : oferta ativa vinculada
+Ofertada : ao conteúdo incentivado
+
+state "Concedida" as Concedida
+Concedida : atribuída como incentivo
+
+state "Expirada" as Expirada
+Expirada : prazo conceitual encerrado
+Expirada : sem concessão
+
+state "Cancelada" as Cancelada
+Cancelada : invalidada deliberadamente
+Cancelada : antes da concessão
+
+[*] --> Disponivel : recompensa configurada
+Disponivel --> Ofertada : oferecerRecompensa(...)
+Ofertada --> Concedida : conceder()
+Ofertada --> Expirada : expirar() [prazo encerrado]
+Ofertada --> Cancelada : cancelamento [antes da concessão]
+
+Concedida --> [*]
+Expirada --> [*]
+Cancelada --> [*]
+
+@enduml

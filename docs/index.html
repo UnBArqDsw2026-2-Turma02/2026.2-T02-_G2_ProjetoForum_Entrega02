@@ -14,7 +14,33 @@
     window.$docsify = {
       loadSidebar: true,
       name: 'Repositorio Template',
-      repo: 'https://github.com/UnBArqDsw2025-1-Turma01/RepositorioTemplateEntrega1'
+      repo: 'https://github.com/UnBArqDsw2025-1-Turma01/RepositorioTemplateEntrega1',
+      plugins: [
+        function (hook) {
+          const originalSubEquipe02Assets = [
+            'diagrama_classes_comunidade_engajamento_v1.svg',
+            'diagrama_classes_comunidade_engajamento_v1.puml',
+            'diagrama_objetos_v1.1.svg',
+            'diagrama_objetos_v1.1.puml',
+            'diagrama_sequencia_v1_0.svg',
+            'diagrama_sequencia_v1_0.puml',
+            'maquina_estados_recompensa_v1_0.svg',
+            'maquina_estados_recompensa_v1_0.puml',
+            'diag_classe_comu_v2.svg'
+          ]
+
+          hook.afterEach(function (html, next) {
+            originalSubEquipe02Assets.forEach(function (asset) {
+              const docsifyPath = 'Base/Relatórios/assets/' + asset
+              html = html
+                .replaceAll('src="./assets/' + asset + '"', 'src="' + docsifyPath + '"')
+                .replaceAll('href="./assets/' + asset + '"', 'href="' + docsifyPath + '"')
+                .replaceAll('href="#/./assets/' + asset + '"', 'href="' + docsifyPath + '"')
+            })
+            next(html)
+          })
+        }
+      ]
     }
   </script>
   <!-- Docsify v4 -->

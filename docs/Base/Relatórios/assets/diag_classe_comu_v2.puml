@@ -1,0 +1,95 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+' --- Enumerations ---
+enum TipoVoto {
+  Positivo
+  Negativo
+}
+
+enum EstadoRecompensa {
+  Disponivel
+  Ofertada
+  Concedida
+  Expirada
+  Cancelada
+}
+
+enum CategoriaMedalha {
+  Bronze
+  Prata
+  Ouro
+}
+
+' --- Classes ---
+class PerfilPublico {
+  - nomeExibicao: String
+  - resumoAtividades: String
+  + exibirHistorico()
+}
+
+class Usuario {
+  - id: UUID
+  - nome: String
+  + votar(alvo: ConteudoVotavel, tipo: TipoVoto)
+  + oferecerRecompensa(alvo: ConteudoVotavel, valorReputacao: int)
+}
+
+class Reputacao {
+  - pontuacao: int
+  + registrar(evento: EventoReputacao)
+  + consultarSaldo() : int
+}
+
+class EventoReputacao {
+  - tipo: TipoEvento
+  - variacao: int
+  - ocorridoEm: DateTime
+  + aplicar()
+}
+
+class Privilegio {
+  - nome: String
+  - descricao: String
+}
+
+class Voto {
+  - tipo: TipoVoto
+  - criadoEm: DateTime
+}
+
+abstract class ConteudoVotavel <<referenciado>> {
+  - id: UUID
+}
+
+class Recompensa {
+  - valorReputacao: int
+  - estado: EstadoRecompensa
+  - criadaEm: DateTime
+  + conceder()
+  + expirar()
+}
+
+class Medalha {
+  - nome: String
+  - categoria: CategoriaMedalha
+  - criterio: String
+}
+
+' --- Relacionamentos ---
+PerfilPublico "1" *-- "1" Usuario : disponibiliza
+Usuario "1" o-- "1" Reputacao : mantem
+Usuario "1" o-- "0..*" Voto : registra
+Usuario "1" <-- "0..*" ConteudoVotavel : pública
+Usuario "1" -- "0..*" Recompensa : oferece
+Usuario "1" -- "0..*" Recompensa : concedida a
+Usuario "1" -- "0..*" Medalha : recebe
+
+Reputacao "1" o-- "0..*" EventoReputacao : registra
+Reputacao ..> Privilegio : habilita progressivamente
+
+Voto "0..1" --> "0..1" EventoReputacao : avalia/pode gerar
+Voto "0..*" -- "1" ConteudoVotavel
+
+Recompensa "0..*" -- "1" ConteudoVotavel : incentiva
+@enduml
