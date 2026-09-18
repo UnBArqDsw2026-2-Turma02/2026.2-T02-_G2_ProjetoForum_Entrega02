@@ -88,3 +88,9 @@ env/
 *.zip
 *.rar
 *.7z
+
+# implementação FastAPI (SubEquipe_01)
+app/
+requirements.txt
+script_mysql.sql
+docs/rascunhos/relato_ia_generativa.md

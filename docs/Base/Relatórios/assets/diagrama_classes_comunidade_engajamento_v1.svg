@@ -1,0 +1,294 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1980" height="1440" viewBox="0 0 1980 1440" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrama de Classes — Comunidade e Engajamento</title>
+  <desc id="desc">Modelo estático UML da SubEquipe 02 com usuários, perfil público, reputação, votos, conteúdo votável, eventos de reputação, medalhas, privilégios e recompensas.</desc>
+  <defs>
+    <style>
+      .title { font: 700 30px Arial, sans-serif; fill: #263238; }
+      .subtitle { font: 16px Arial, sans-serif; fill: #546E7A; }
+      .box { fill: #FFFFFF; stroke: #263238; stroke-width: 2; }
+      .header { fill: #263238; }
+      .enum-header { fill: #546E7A; }
+      .stereo { font: italic 14px Arial, sans-serif; fill: #FFFFFF; }
+      .name { font: 700 21px Arial, sans-serif; fill: #FFFFFF; }
+      .member { font: 15px "Courier New", monospace; fill: #263238; }
+      .member-muted { font: 14px "Courier New", monospace; fill: #546E7A; }
+      .connector { fill: none; stroke: #455A64; stroke-width: 2.2; stroke-linecap: square; stroke-linejoin: round; }
+      .dependency { fill: none; stroke: #607D8B; stroke-width: 2; stroke-dasharray: 8 6; stroke-linecap: butt; stroke-linejoin: round; }
+      .label { font: 14px Arial, sans-serif; fill: #37474F; paint-order: stroke; stroke: #FAFBFC; stroke-width: 6px; stroke-linejoin: round; }
+      .multiplicity { font: 13px Arial, sans-serif; fill: #37474F; paint-order: stroke; stroke: #FAFBFC; stroke-width: 5px; stroke-linejoin: round; }
+      .note { fill: #FFF8E1; stroke: #B08D28; stroke-width: 1.5; }
+      .note-title { font: 700 14px Arial, sans-serif; fill: #5D4E12; }
+      .note-text { font: 14px Arial, sans-serif; fill: #5D4E12; }
+    </style>
+    <marker id="open-arrow" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1 1 L 10 5 L 1 9" fill="none" stroke="#455A64" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    </marker>
+    <marker id="dependency-arrow" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1 1 L 10 5 L 1 9" fill="none" stroke="#607D8B" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    </marker>
+  </defs>
+
+  <rect width="1980" height="1440" fill="#FAFBFC"/>
+  <text x="60" y="46" class="title">Diagrama de Classes — Comunidade e Engajamento</text>
+
+  <!-- Relacionamentos principais: desenhados atrás das caixas. -->
+  <g id="relationships" aria-label="Relacionamentos UML">
+    <!-- Composição Usuario–PerfilPublico: disponibiliza -->
+    <path class="connector" d="M 400 240 H 488"/>
+    <polygon points="500,240 488,232 476,240 488,248" fill="#455A64" stroke="#455A64" stroke-width="2"/>
+    <text x="407" y="225" class="multiplicity">1</text>
+    <text x="477" y="225" class="multiplicity">1</text>
+    <text x="408" y="268" class="label">disponibiliza</text>
+
+    <!-- Composição Usuario–Reputacao: mantém -->
+    <path class="connector" d="M 890 240 H 1030"/>
+    <polygon points="890,240 902,232 914,240 902,248" fill="#455A64" stroke="#455A64" stroke-width="2"/>
+    <text x="914" y="225" class="multiplicity">1</text>
+    <text x="1010" y="225" class="multiplicity">1</text>
+    <text x="947" y="268" class="label">mantém</text>
+
+    <!-- Associação Usuario–Voto: registra -->
+    <path class="connector" d="M 650 410 V 450"/>
+    <text x="660" y="426" class="multiplicity">1</text>
+    <text x="660" y="440" class="multiplicity">0..*</text>
+    <text x="704" y="433" class="label">registra</text>
+
+    <!-- Associação dirigida Voto–ConteudoVotavel: avalia -->
+    <path class="connector" d="M 820 535 H 950" marker-end="url(#open-arrow)"/>
+    <text x="829" y="522" class="multiplicity">0..*</text>
+    <text x="926" y="522" class="multiplicity">1</text>
+    <text x="856" y="562" class="label">avalia</text>
+
+    <!-- Associação dirigida ConteudoVotavel–Usuario: possui autor -->
+    <path class="connector" d="M 1020 450 V 430 H 850 V 410" marker-end="url(#open-arrow)"/>
+    <text x="1030" y="446" class="multiplicity">0..*</text>
+    <text x="860" y="423" class="multiplicity">1</text>
+    <text x="900" y="422" class="label">possui autor</text>
+
+    <!-- Composição Reputacao–EventoReputacao: registra -->
+    <path class="connector" d="M 1390 240 H 1510"/>
+    <polygon points="1390,240 1402,232 1414,240 1402,248" fill="#455A64" stroke="#455A64" stroke-width="2"/>
+    <text x="1413" y="225" class="multiplicity">1</text>
+    <text x="1474" y="225" class="multiplicity">0..*</text>
+    <text x="1429" y="268" class="label">registra</text>
+
+    <!-- Associação dirigida Voto–EventoReputacao: pode gerar -->
+    <path class="connector" d="M 820 575 H 900 V 420 H 1420 V 380 H 1680 V 360" marker-end="url(#open-arrow)"/>
+    <text x="829" y="596" class="multiplicity">0..1</text>
+    <text x="1690" y="382" class="multiplicity">0..1</text>
+    <text x="1114" y="410" class="label">pode gerar</text>
+
+    <!-- Associação Usuario–Medalha: recebe -->
+    <path class="connector" d="M 620 140 V 95 H 1940 V 990 H 1800"/>
+    <text x="632" y="130" class="multiplicity">0..*</text>
+    <text x="1808" y="978" class="multiplicity">0..*</text>
+    <text x="1850" y="975" class="label">recebe</text>
+
+    <!-- Associação Usuario–Privilegio: acessa -->
+    <path class="connector" d="M 760 140 V 115 H 1900 V 730 H 1800"/>
+    <text x="772" y="134" class="multiplicity">0..*</text>
+    <text x="1808" y="718" class="multiplicity">0..*</text>
+    <text x="1838" y="705" class="label">acessa</text>
+
+    <!-- Dependência Reputacao–Privilegio: habilita progressivamente -->
+    <path class="dependency" d="M 1390 285 H 1435 V 765 H 1460" marker-end="url(#dependency-arrow)"/>
+    <text x="1248" y="790" class="label">habilita progressivamente</text>
+
+    <!-- Associação Usuario–Recompensa: oferece -->
+    <path class="connector" d="M 500 300 H 430 V 950 H 950"/>
+    <text x="447" y="293" class="multiplicity">1</text>
+    <text x="914" y="938" class="multiplicity">0..*</text>
+    <text x="666" y="940" class="label">oferece</text>
+
+    <!-- Associação dirigida Recompensa–ConteudoVotavel: incentiva -->
+    <path class="connector" d="M 1000 850 V 620" marker-end="url(#open-arrow)"/>
+    <text x="1012" y="839" class="multiplicity">0..*</text>
+    <text x="1012" y="641" class="multiplicity">1</text>
+    <text x="1018" y="744" class="label">incentiva</text>
+
+  </g>
+
+  <!-- Classes e enumerações -->
+  <g id="perfil-publico" aria-label="Classe PerfilPublico">
+    <rect class="box" x="60" y="150" width="340" height="180" rx="3"/>
+    <rect class="header" x="60" y="150" width="340" height="62" rx="3"/>
+    <text x="82" y="171" class="stereo">&lt;&lt;class&gt;&gt;</text>
+    <text x="82" y="198" class="name">PerfilPublico</text>
+    <line x1="60" y1="212" x2="400" y2="212" stroke="#263238" stroke-width="1.5"/>
+    <text x="78" y="238" class="member">- nomeExibicao: String</text>
+    <text x="78" y="262" class="member">- resumoAtividades: String</text>
+    <line x1="60" y1="278" x2="400" y2="278" stroke="#B0BEC5" stroke-width="1"/>
+    <text x="78" y="304" class="member">+ exibirHistorico()</text>
+  </g>
+
+  <g id="usuario" aria-label="Classe Usuario">
+    <rect class="box" x="500" y="140" width="390" height="270" rx="3"/>
+    <rect class="header" x="500" y="140" width="390" height="62" rx="3"/>
+    <text x="522" y="161" class="stereo">&lt;&lt;class&gt;&gt;</text>
+    <text x="522" y="188" class="name">Usuario</text>
+    <line x1="500" y1="202" x2="890" y2="202" stroke="#263238" stroke-width="1.5"/>
+    <text x="518" y="228" class="member">- id: UUID</text>
+    <text x="518" y="252" class="member">- nome: String</text>
+    <line x1="500" y1="268" x2="890" y2="268" stroke="#B0BEC5" stroke-width="1"/>
+    <text x="518" y="294" class="member" aria-label="+ votar(alvo: ConteudoVotavel, tipo: TipoVoto)">
+      <tspan x="518" y="294">+ votar(alvo: ConteudoVotavel,</tspan>
+      <tspan x="536" y="316">tipo: TipoVoto)</tspan>
+    </text>
+    <text x="518" y="344" class="member" aria-label="+ oferecerRecompensa(alvo: ConteudoVotavel, valorReputacao: int)">
+      <tspan x="518" y="344">+ oferecerRecompensa(</tspan>
+      <tspan x="536" y="366">alvo: ConteudoVotavel,</tspan>
+      <tspan x="536" y="388">valorReputacao: int)</tspan>
+    </text>
+  </g>
+
+  <g id="reputacao" aria-label="Classe Reputacao">
+    <rect class="box" x="1030" y="150" width="360" height="220" rx="3"/>
+    <rect class="header" x="1030" y="150" width="360" height="62" rx="3"/>
+    <text x="1052" y="171" class="stereo">&lt;&lt;class&gt;&gt;</text>
+    <text x="1052" y="198" class="name">Reputacao</text>
+    <line x1="1030" y1="212" x2="1390" y2="212" stroke="#263238" stroke-width="1.5"/>
+    <text x="1048" y="238" class="member">- pontuacao: int</text>
+    <line x1="1030" y1="254" x2="1390" y2="254" stroke="#B0BEC5" stroke-width="1"/>
+    <text x="1048" y="280" class="member" aria-label="+ registrar(evento: EventoReputacao)">
+      <tspan x="1048" y="280">+ registrar(</tspan>
+      <tspan x="1066" y="302">evento: EventoReputacao)</tspan>
+    </text>
+    <text x="1048" y="330" class="member">+ consultarSaldo(): int</text>
+  </g>
+
+  <g id="evento-reputacao" aria-label="Classe EventoReputacao">
+    <rect class="box" x="1510" y="140" width="340" height="220" rx="3"/>
+    <rect class="header" x="1510" y="140" width="340" height="62" rx="3"/>
+    <text x="1532" y="161" class="stereo">&lt;&lt;class&gt;&gt;</text>
+    <text x="1532" y="188" class="name">EventoReputacao</text>
+    <line x1="1510" y1="202" x2="1850" y2="202" stroke="#263238" stroke-width="1.5"/>
+    <text x="1528" y="228" class="member">- tipo: TipoEvento</text>
+    <text x="1528" y="252" class="member">- variacao: int</text>
+    <text x="1528" y="276" class="member">- ocorridoEm: DateTime</text>
+    <line x1="1510" y1="292" x2="1850" y2="292" stroke="#B0BEC5" stroke-width="1"/>
+    <text x="1528" y="318" class="member">+ aplicar()</text>
+  </g>
+
+  <g id="tipo-voto" aria-label="Enumeração TipoVoto">
+    <rect class="box" x="60" y="450" width="280" height="150" rx="3"/>
+    <rect class="enum-header" x="60" y="450" width="280" height="62" rx="3"/>
+    <text x="78" y="471" class="stereo">&lt;&lt;enumeration&gt;&gt;</text>
+    <text x="78" y="498" class="name">TipoVoto</text>
+    <line x1="60" y1="512" x2="340" y2="512" stroke="#263238" stroke-width="1.5"/>
+    <text x="78" y="540" class="member">Positivo</text>
+    <text x="78" y="564" class="member">Negativo</text>
+  </g>
+
+  <g id="voto" aria-label="Classe Voto">
+    <rect class="box" x="500" y="450" width="320" height="170" rx="3"/>
+    <rect class="header" x="500" y="450" width="320" height="62" rx="3"/>
+    <text x="522" y="471" class="stereo">&lt;&lt;class&gt;&gt;</text>
+    <text x="522" y="498" class="name">Voto</text>
+    <line x1="500" y1="512" x2="820" y2="512" stroke="#263238" stroke-width="1.5"/>
+    <text x="518" y="540" class="member">- tipo: TipoVoto</text>
+    <text x="518" y="564" class="member">- criadoEm: DateTime</text>
+  </g>
+
+  <g id="conteudo-votavel" aria-label="Classe abstrata e referenciada ConteudoVotavel">
+    <rect class="box" x="950" y="450" width="380" height="170" rx="3"/>
+    <rect class="header" x="950" y="450" width="380" height="78" rx="3"/>
+    <text x="972" y="471" class="stereo">&lt;&lt;abstract, referenciado&gt;&gt;</text>
+    <text x="972" y="500" class="name" font-style="italic">ConteudoVotavel</text>
+    <line x1="950" y1="528" x2="1330" y2="528" stroke="#263238" stroke-width="1.5"/>
+    <text x="968" y="556" class="member">- id: UUID</text>
+    <line x1="950" y1="572" x2="1330" y2="572" stroke="#B0BEC5" stroke-width="1"/>
+  </g>
+
+  <g id="tipo-evento" aria-label="Enumeração TipoEvento">
+    <rect class="box" x="1510" y="400" width="340" height="160" rx="3"/>
+    <rect class="enum-header" x="1510" y="400" width="340" height="62" rx="3"/>
+    <text x="1528" y="421" class="stereo">&lt;&lt;enumeration&gt;&gt;</text>
+    <text x="1528" y="448" class="name">TipoEvento</text>
+    <line x1="1510" y1="462" x2="1850" y2="462" stroke="#263238" stroke-width="1.5"/>
+    <text x="1528" y="490" class="member">Voto</text>
+    <text x="1528" y="514" class="member">RespostaAceita</text>
+    <text x="1670" y="490" class="member">Recompensa</text>
+    <text x="1670" y="514" class="member">Outro</text>
+  </g>
+
+  <g id="nota-conteudo" aria-label="Nota sobre ConteudoVotavel">
+    <rect class="note" x="500" y="670" width="380" height="112" rx="4"/>
+    <text x="520" y="698" class="note-title">Conteúdo referenciado</text>
+    <text x="520" y="724" class="note-text">Representa pergunta, resposta ou comentário.</text>
+    <text x="520" y="748" class="note-text">Seus detalhes pertencem a outro recorte</text>
+    <text x="520" y="770" class="note-text">e não são detalhados neste modelo.</text>
+  </g>
+
+  <g id="nota-evento" aria-label="Nota sobre EventoReputacao">
+    <rect class="note" x="1510" y="570" width="340" height="70" rx="4"/>
+    <text x="1528" y="590" class="note-text">Registra a variação de reputação e</text>
+    <text x="1528" y="612" class="note-text">classifica conceitualmente sua causa;</text>
+    <text x="1528" y="632" class="note-text">origens detalhadas ficam fora deste recorte.</text>
+  </g>
+
+  <g id="recompensa" aria-label="Classe Recompensa">
+    <rect class="box" x="950" y="850" width="420" height="220" rx="3"/>
+    <rect class="header" x="950" y="850" width="420" height="62" rx="3"/>
+    <text x="972" y="871" class="stereo">&lt;&lt;class&gt;&gt;</text>
+    <text x="972" y="898" class="name">Recompensa</text>
+    <line x1="950" y1="912" x2="1370" y2="912" stroke="#263238" stroke-width="1.5"/>
+    <text x="968" y="938" class="member">- valorReputacao: int</text>
+    <text x="968" y="962" class="member">- estado: EstadoRecompensa</text>
+    <text x="968" y="986" class="member">- criadaEm: DateTime</text>
+    <line x1="950" y1="1002" x2="1370" y2="1002" stroke="#B0BEC5" stroke-width="1"/>
+    <text x="968" y="1028" class="member">+ conceder()</text>
+    <text x="968" y="1052" class="member">+ expirar()</text>
+  </g>
+
+  <g id="privilegio" aria-label="Classe Privilegio">
+    <rect class="box" x="1460" y="650" width="340" height="160" rx="3"/>
+    <rect class="header" x="1460" y="650" width="340" height="62" rx="3"/>
+    <text x="1482" y="671" class="stereo">&lt;&lt;class&gt;&gt;</text>
+    <text x="1482" y="698" class="name">Privilegio</text>
+    <line x1="1460" y1="712" x2="1800" y2="712" stroke="#263238" stroke-width="1.5"/>
+    <text x="1478" y="740" class="member">- nome: String</text>
+    <text x="1478" y="764" class="member">- descricao: String</text>
+  </g>
+
+  <g id="medalha" aria-label="Classe Medalha">
+    <rect class="box" x="1460" y="900" width="340" height="180" rx="3"/>
+    <rect class="header" x="1460" y="900" width="340" height="62" rx="3"/>
+    <text x="1482" y="921" class="stereo">&lt;&lt;class&gt;&gt;</text>
+    <text x="1482" y="948" class="name">Medalha</text>
+    <line x1="1460" y1="962" x2="1800" y2="962" stroke="#263238" stroke-width="1.5"/>
+    <text x="1478" y="990" class="member">- nome: String</text>
+    <text x="1478" y="1014" class="member">- categoria: CategoriaMedalha</text>
+    <text x="1478" y="1038" class="member">- criterio: String</text>
+  </g>
+
+  <g id="categoria-medalha" aria-label="Enumeração CategoriaMedalha">
+    <rect class="box" x="1460" y="1120" width="340" height="150" rx="3"/>
+    <rect class="enum-header" x="1460" y="1120" width="340" height="62" rx="3"/>
+    <text x="1478" y="1141" class="stereo">&lt;&lt;enumeration&gt;&gt;</text>
+    <text x="1478" y="1168" class="name">CategoriaMedalha</text>
+    <line x1="1460" y1="1182" x2="1800" y2="1182" stroke="#263238" stroke-width="1.5"/>
+    <text x="1478" y="1210" class="member">Bronze</text>
+    <text x="1570" y="1210" class="member">Prata</text>
+    <text x="1650" y="1210" class="member">Ouro</text>
+  </g>
+
+  <g id="estado-recompensa" aria-label="Enumeração EstadoRecompensa">
+    <rect class="box" x="950" y="1160" width="420" height="200" rx="3"/>
+    <rect class="enum-header" x="950" y="1160" width="420" height="62" rx="3"/>
+    <text x="968" y="1181" class="stereo">&lt;&lt;enumeration&gt;&gt;</text>
+    <text x="968" y="1208" class="name">EstadoRecompensa</text>
+    <line x1="950" y1="1222" x2="1370" y2="1222" stroke="#263238" stroke-width="1.5"/>
+    <text x="968" y="1250" class="member">Disponivel</text>
+    <text x="968" y="1274" class="member">Ofertada</text>
+    <text x="968" y="1298" class="member">Concedida</text>
+    <text x="1100" y="1250" class="member">Expirada</text>
+    <text x="1100" y="1274" class="member">Cancelada</text>
+  </g>
+
+  <g id="nota-recompensa" aria-label="Nota sobre Recompensa">
+    <rect class="note" x="500" y="820" width="380" height="76" rx="4"/>
+    <text x="520" y="848" class="note-title">Ciclo de vida da recompensa</text>
+    <text x="520" y="872" class="note-text">Os estados explicitam o ciclo de vida</text>
+    <text x="520" y="892" class="note-text">conceitual da recompensa.</text>
+  </g>
+</svg>

@@ -1,0 +1,79 @@
+@startuml
+title Diagrama de Sequência — Votação e Atualização de Reputação
+
+skinparam shadowing false
+skinparam roundcorner 12
+skinparam defaultFontName Helvetica
+skinparam sequenceMessageAlign center
+skinparam titleFontSize 22
+skinparam titleFontColor #1F2A38
+skinparam titleFontStyle bold
+skinparam sequence {
+  ArrowColor #E65100
+  ArrowFontColor #33414D
+  ArrowFontSize 13
+  LifeLineBorderColor #90A4AE
+  LifeLineBackgroundColor #FFFFFF
+  ParticipantBorderColor #1F2A38
+  ParticipantBackgroundColor #F5F6FA
+  ParticipantFontColor #1F2A38
+  ParticipantFontStyle bold
+  ActorBorderColor #1F2A38
+  ActorBackgroundColor #F5F6FA
+  ActorFontColor #1F2A38
+  ActorFontStyle bold
+  NoteBackgroundColor #FDF6D8
+  NoteBorderColor #D9A621
+  NoteFontColor #4A3B00
+}
+
+actor "usuarioVotante : Usuario" as votante
+participant "controleVotacao" as controle
+participant "conteudo : ConteudoVotavel" as conteudo
+participant "voto : Voto" as voto
+participant "evento : EventoReputacao" as evento
+participant "reputacaoAutor : Reputacao" as reputacao
+actor "usuarioAutor : Usuario" as autor
+
+note over reputacao, autor
+  reputacaoAutor pertence ao usuarioAutor, autor do conteúdo votado.
+end note
+
+votante -> controle: votar(conteudo, tipo)
+activate controle
+
+controle -> conteudo: verificarVotabilidade()
+activate conteudo
+conteudo -[#1565C0]-> controle: elegível / inelegível
+deactivate conteudo
+
+alt conteúdo elegível
+
+  create voto
+  controle -[#2E7D32]-> voto: <<create>>(tipo, criadoEm)
+  controle -> conteudo: registrarVoto(voto)
+
+  create evento
+  controle -[#2E7D32]-> evento: <<create>>(tipo = Voto, variacao, ocorridoEm)
+
+  controle -> reputacao: registrar(evento)
+  activate reputacao
+  reputacao -> evento: aplicar()
+  evento -[#1565C0]-> reputacao: variação aplicada
+  reputacao -[#1565C0]-> controle: evento registrado
+  deactivate reputacao
+
+  controle -> reputacao: consultarSaldo()
+  activate reputacao
+  reputacao -[#1565C0]-> controle: pontuacaoAtual
+  deactivate reputacao
+
+  controle -[#1565C0]-> votante: voto registrado
+
+else conteúdo inelegível
+  controle -[#1565C0]-> votante: voto rejeitado (motivo)
+end
+
+deactivate controle
+
+@enduml
