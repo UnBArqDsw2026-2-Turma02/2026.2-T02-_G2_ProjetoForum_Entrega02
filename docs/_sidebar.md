@@ -11,4 +11,5 @@
     * Atas de Reunião e Rastreabilidade
       * [Rastreabilidade das Reuniões](Base/iniciativas_extras/atas_reuniao/rastreabilidade.md)
       * [Modelo de Ata](Base/iniciativas_extras/atas_reuniao/modelo-ata.md)
-      * SubEquipe_03 _(atas em preenchimento)_
+      * SubEquipe_03
+        * [Ata 01 - Onboarding](Base/iniciativas_extras/atas_reuniao/subequipe_03/ata-01-onboarding.md)
