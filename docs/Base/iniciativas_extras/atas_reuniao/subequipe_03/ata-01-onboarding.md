@@ -23,8 +23,8 @@
 ### Resumo
 
 Reunião de alinhamento da SubEquipe_03 para a Entrega 02, dedicada à
-definição do escopo reduzido da entrega (um diagrama estático, um
-dinâmico e um diagrama complementar, totalizando cerca de dez itens) e
+definição do escopo reduzido da entrega (um diagrama estático e um
+dinâmico, totalizando cerca de dez itens) e
 à discussão técnica dos primeiros esboços de diagrama de componentes e
 de diagrama de classes sobre o modelo de monetização do fórum. O grupo
 debateu a pertinência de manter a seção de consumo de API corporativa
@@ -57,8 +57,8 @@ resolvidos após Alberto Côrtes e Pedro Vargas indicarem o uso da opção
 **Definição do escopo da entrega.** Kaio Amoury questionou se a equipe
 já havia definido as tarefas individuais. Pedro Vargas esclareceu que a
 entrega não exige issues formais por se tratar de um escopo reduzido,
-composto por um diagrama estático, um dinâmico e um diagrama tático,
-totalizando cerca de dez itens a entregar (00:05:10).
+composto por um diagrama estático e um dinâmico, totalizando cerca de
+dez itens a entregar (00:05:10).
 
 **Esclarecimento sobre diagramas estáticos e dinâmicos.** Bruno Souza
 comentou ter elaborado um diagrama único e genérico por falta de
