@@ -13,10 +13,10 @@ Ao criar uma nova ata:
    `docs/Base/iniciativas_extras/atas_reuniao/subequipe_0X/` (crie a pasta
    se ainda não existir — `subequipe_01`, `subequipe_02` ou
    `subequipe_03`).
-3. Adicione o link ao [_sidebar.md](../../../_sidebar.md), na subseção
+3. Adicione o link ao [_sidebar.md](/_sidebar.md), na subseção
    "Reuniões Gerais" ou "Reuniões por Subequipe" correspondente.
 4. Inclua uma linha correspondente na
-   [Tabela de Rastreabilidade](./rastreabilidade.md), na tabela certa
+   [Tabela de Rastreabilidade](/Base/iniciativas_extras/atas_reuniao/rastreabilidade.md), na tabela certa
    (Reuniões Gerais ou a subequipe correspondente).
 
 ---
